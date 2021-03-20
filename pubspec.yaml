@@ -18,6 +18,7 @@ dependencies:
   http: ^0.12.2
   shared_preferences: ^0.5.12+4
   cool_alert: ^1.0.3
+  flutter_background_geolocation: '^1.9.0'
 
 dev_dependencies:
   flutter_test:

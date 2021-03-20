@@ -1,8 +1,11 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_background_geolocation/flutter_background_geolocation.dart'
+    as bg;
 
 import '../utils/helpers/vibrate.dart';
 import '../utils/helpers/get_id.dart';
+import '../utils/helpers/location.dart';
 import '../utils/services/send_alert_service.dart';
 
 class Home extends StatefulWidget {
@@ -15,6 +18,13 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     _loadDeviceId();
+    _onLocation();
+  }
+
+  _onLocation() async {
+    bg.BackgroundGeolocation.onLocation((bg.Location location) async {
+      await setLocation(location.coords.latitude, location.coords.longitude);
+    });
   }
 
   _loadDeviceId() async {
