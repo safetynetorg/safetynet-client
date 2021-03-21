@@ -1,16 +1,12 @@
 import 'package:http/http.dart' as http;
 
-import 'position_service.dart';
+import '../helpers/get_token.dart';
 import 'rest_api_service.dart';
-import '../../utils/helpers/get_id.dart';
 import '../../constants/api_constants.dart';
 import '../../modules/models/device.dart';
 
 Future<int> sendAlert() async {
-  final location = await determinePosition();
-
-  var body =
-      Device(await getId(), lat: location.latitude, lon: location.longitude);
+  var body = Device(await getToken(), lat: 0, lon: 0);
 
   http.Response response = await RestCalls.post(ALERT, body: body.toJson());
 

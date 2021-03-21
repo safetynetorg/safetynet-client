@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class RestCalls {
-  static Future<http.Response> post(String url, {Map body}) async {
+  static Future<http.Response> post(String url, {Map<String, dynamic> body}) async {
     var response = await http.post(url, body: json.encode(body));
     return response;
   }
@@ -15,7 +15,7 @@ class RestCalls {
 
   static Future<http.Response> put(
       String url, Map<String, dynamic> body) async {
-    var response = await http.put(url, body: body);
+    var response = await http.put(url, body: json.encode(body));
     return response;
   }
 }

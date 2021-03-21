@@ -1,12 +1,13 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_background_geolocation/flutter_background_geolocation.dart'
-    as bg;
+import 'package:background_location/background_location.dart';
 
 import '../utils/helpers/vibrate.dart';
-import '../utils/helpers/get_id.dart';
-import '../utils/helpers/location.dart';
 import '../utils/services/send_alert_service.dart';
+import '../utils/helpers/get_token.dart';
+import '../utils/services/rest_api_service.dart';
+import '../utils/services/notifications.dart';
+import '../constants/api_constants.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,18 +18,21 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    _loadDeviceId();
-    _onLocation();
+    _startLocation();
   }
 
-  _onLocation() async {
-    bg.BackgroundGeolocation.onLocation((bg.Location location) async {
-      await setLocation(location.coords.latitude, location.coords.longitude);
+  void _startLocation() async {
+    await PushNotificationsManager().init();
+    await BackgroundLocation.startLocationService();
+    BackgroundLocation.getLocationUpdates((location) async {
+      var token = await getToken();
+      var body = <String, dynamic>{
+        'id': token,
+        'lat': location.latitude,
+        'lon': location.longitude
+      };
+      RestCalls.put(UPDATE_LOCATION, body);
     });
-  }
-
-  _loadDeviceId() async {
-    await getId();
   }
 
   @override
@@ -37,7 +41,6 @@ class _HomeState extends State<Home> {
       body: Center(
         child: InkWell(
           onTap: () async {
-            print('ok');
             int devicesAlerted = await sendAlert();
             vibrate();
             CoolAlert.show(
