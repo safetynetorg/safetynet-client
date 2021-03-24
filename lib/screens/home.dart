@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/helpers/vibrate.dart';
 import '../utils/services/send_alert_service.dart';
-import '../utils/services/notifications.dart';
+import '../utils/services/notifications_service.dart';
 import '../utils/services/update_location_service.dart';
 
 class Home extends StatefulWidget {

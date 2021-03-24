@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 
-import 'location.dart';
+import 'location_service.dart';
 import 'rest_api_service.dart';
 import '../../constants/api_constants.dart';
 import '../../modules/models/device.dart';

@@ -20,6 +20,8 @@ dependencies:
   firebase_messaging: ^7.0.3
   background_location: ^0.4.1
   geolocator: ^6.2.1
+  flutter_launcher_icons: ^0.8.1
+  flutter_native_splash: ^0.3.0
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +33,15 @@ flutter:
 
   assets:
     - assets/images/exclamation.png
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/images/logo_png.png
+
+flutter_native_splash:
+  android: true
+  ios: true
+  image: assets/images/logo_png.png
+  color: "#FFFFFF"
