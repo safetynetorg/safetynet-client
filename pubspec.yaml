@@ -22,6 +22,8 @@ dependencies:
   geolocator: ^6.2.1
   flutter_launcher_icons: ^0.8.1
   flutter_native_splash: ^0.3.0
+  firebase_core: ^0.5.2
+
 
 dev_dependencies:
   flutter_test:
