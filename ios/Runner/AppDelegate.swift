@@ -1,5 +1,6 @@
 import UIKit
 import Flutter
+import Firebase
 import background_locator
 
 func registerPlugins(registry: FlutterPluginRegistry) -> () {
@@ -14,6 +15,7 @@ func registerPlugins(registry: FlutterPluginRegistry) -> () {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+    FirebaseApp.configure()
     GeneratedPluginRegistrant.register(with: self)
     BackgroundLocatorPlugin.setPluginRegistrantCallback(registerPlugins)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)

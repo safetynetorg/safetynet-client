@@ -21,6 +21,8 @@ class _HomeState extends State<Home> {
 
   void init() async {
     await PushNotificationsManager().init();
+    await getToken();
+    print(await getToken());
     await backgroundLocation();
   }
 

@@ -1,5 +1,5 @@
 PODS:
-  - background_location (0.0.1):
+  - background_locator (0.0.1):
     - Flutter
   - Firebase/CoreOnly (6.33.0):
     - FirebaseCore (= 6.10.3)
@@ -68,20 +68,18 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
-  - "permission_handler (5.1.0+2)":
-    - Flutter
   - PromisesObjC (1.2.12)
   - Protobuf (3.14.0)
   - shared_preferences (0.0.1):
     - Flutter
 
 DEPENDENCIES:
-  - background_location (from `.symlinks/plugins/background_location/ios`)
+  - background_locator (from `.symlinks/plugins/background_locator/ios`)
+  - Firebase/Messaging
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - Flutter (from `Flutter`)
   - geolocator (from `.symlinks/plugins/geolocator/ios`)
-  - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
 
 SPEC REPOS:
@@ -99,8 +97,8 @@ SPEC REPOS:
     - Protobuf
 
 EXTERNAL SOURCES:
-  background_location:
-    :path: ".symlinks/plugins/background_location/ios"
+  background_locator:
+    :path: ".symlinks/plugins/background_locator/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_messaging:
@@ -109,13 +107,11 @@ EXTERNAL SOURCES:
     :path: Flutter
   geolocator:
     :path: ".symlinks/plugins/geolocator/ios"
-  permission_handler:
-    :path: ".symlinks/plugins/permission_handler/ios"
   shared_preferences:
     :path: ".symlinks/plugins/shared_preferences/ios"
 
 SPEC CHECKSUMS:
-  background_location: 1b80c1fe3abd9912bca298618f6e365abf6f588f
+  background_locator: d8daad218f2282920654de8a649b430d75c218d9
   Firebase: 8db6f2d1b2c5e2984efba4949a145875a8f65fe5
   firebase_core: 5d6a02f3d85acd5f8321c2d6d62877626a670659
   firebase_messaging: 0aea2cd5885b65e19ede58ee3507f485c992cc75
@@ -129,11 +125,10 @@ SPEC CHECKSUMS:
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
-  permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 0cde852566359049847168e51bd1c690e0f70056
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
 
-PODFILE CHECKSUM: fe0e1ee7f3d1f7d00b11b474b62dd62134535aea
+PODFILE CHECKSUM: 48aa0594262a5038f1cc1df0b5613232f25fb503
 
 COCOAPODS: 1.10.1
