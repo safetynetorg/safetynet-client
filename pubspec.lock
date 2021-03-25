@@ -22,13 +22,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0-nullsafety.1"
-  background_location:
+  background_locator:
     dependency: "direct main"
     description:
-      name: background_location
+      name: background_locator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.1"
+    version: "1.4.0+1"
   boolean_selector:
     dependency: transitive
     description:
@@ -303,20 +303,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.2"
-  permission_handler:
-    dependency: transitive
-    description:
-      name: permission_handler
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.1.0+2"
-  permission_handler_platform_interface:
-    dependency: transitive
-    description:
-      name: permission_handler_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.2"
   petitparser:
     dependency: transitive
     description:
