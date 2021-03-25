@@ -18,7 +18,7 @@ dependencies:
   shared_preferences: ^0.5.12+4
   cool_alert: ^1.0.3
   firebase_messaging: ^7.0.3
-  background_location: ^0.4.1
+  background_locator: ^1.4.0+1
   geolocator: ^6.2.1
   flutter_launcher_icons: ^0.8.1
   flutter_native_splash: ^0.3.0

@@ -1,22 +1,27 @@
-import 'package:background_location/background_location.dart';
+import 'dart:isolate';
+import 'dart:ui';
+
+import 'package:background_locator/background_locator.dart';
+import 'package:background_locator/location_dto.dart';
 
 import '../../constants/api_constants.dart';
 import '../helpers/get_token.dart';
 import 'rest_api_service.dart';
 
 Future<void> backgroundLocation() async {
-  await BackgroundLocation.startLocationService();
-  BackgroundLocation.getLocationUpdates((location) async {
-    await _updateLocation(location);
-  });
+  await BackgroundLocator.initialize();
+  const String _isolateName = "LocatorIsolate";
+  ReceivePort port = ReceivePort();
+  IsolateNameServer.registerPortWithName(port.sendPort, _isolateName);
+  BackgroundLocator.registerLocationUpdate(_callback);
 }
 
-Future<void> _updateLocation(Location location) async {
+void _callback(LocationDto locationDto) async {
   var token = await getToken();
   var body = <String, dynamic>{
     'id': token,
-    'lat': location.latitude,
-    'lon': location.longitude
+    'lat': locationDto.latitude,
+    'lon': locationDto.longitude
   };
-  RestCalls.put(UPDATE_LOCATION, body);
+  await RestCalls.put(UPDATE_LOCATION, body);
 }

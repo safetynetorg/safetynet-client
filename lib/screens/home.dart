@@ -1,3 +1,4 @@
+import 'package:client/utils/helpers/get_token.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _HomeState extends State<Home> {
 
   void init() async {
     await PushNotificationsManager().init();
-    backgroundLocation();
+    await backgroundLocation();
   }
 
   @override
