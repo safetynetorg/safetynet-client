@@ -4,10 +4,14 @@ import 'location_service.dart';
 import '../../constants/api_constants.dart';
 import '../../modules/models/device.dart';
 
-Future<void> sendAlert() async {
+Future<int> sendAlert() async {
   var position = await determinePosition();
   var body =
       Device(await getToken(), lat: position.latitude, lon: position.longitude);
 
-  await RestCalls.post(ALERT, body: body.toJson());
+  var response = await RestCalls.post(ALERT, body: body.toJson());
+  if (response.statusCode != 500) {
+    return int.parse(response.body);
+  }
+  return 0;
 }

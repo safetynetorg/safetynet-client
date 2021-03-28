@@ -1,3 +1,4 @@
+import 'package:client/utils/helpers/get_token.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
@@ -31,12 +32,12 @@ class _HomeState extends State<Home> {
       body: Center(
         child: InkWell(
           onTap: () async {
-            await sendAlert();
+            var alerted = await sendAlert();
             vibrate();
             CoolAlert.show(
               context: context,
               type: CoolAlertType.info,
-              text: 'Your alert has been sent',
+              text: '$alerted device(s) have been alerted',
             );
           },
           borderRadius: BorderRadius.all(Radius.circular(30)),

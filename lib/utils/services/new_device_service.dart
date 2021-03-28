@@ -1,4 +1,4 @@
-import 'package:http/http.dart' as http;
+import 'dart:io';
 
 import 'location_service.dart';
 import 'rest_api_service.dart';
@@ -10,7 +10,10 @@ Future<String> newDevice(String token) async {
   var body =
       Device(token, lat: location.latitude, lon: location.longitude).toJson();
 
-  http.Response response = await RestCalls.post(NEW_DEVICE, body: body);
+  var response = await RestCalls.post(NEW_DEVICE, body: body);
 
-  return response.body;
+  if (response.statusCode != 500) {
+    return response.body;
+  }
+  exit(0);
 }
