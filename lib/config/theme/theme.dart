@@ -8,7 +8,8 @@ class CustomTheme {
       primaryColor: CustomColors.primary,
       accentColor: CustomColors.accent,
       highlightColor: CustomColors.highlight,
-      splashColor: CustomColors.splash,
+      buttonColor: CustomColors.btn,
+      backgroundColor: CustomColors.bg,
     );
   }
 }
