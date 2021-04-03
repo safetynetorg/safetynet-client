@@ -21,9 +21,16 @@ class _HomeState extends State<Home> {
 
   void init() async {
     await PushNotificationsManager().init();
-    await getToken();
-    print(await getToken());
     await backgroundLocation();
+  }
+
+  void loading() {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return Center(child: CircularProgressIndicator());
+        });
   }
 
   @override
@@ -32,8 +39,10 @@ class _HomeState extends State<Home> {
       body: Center(
         child: InkWell(
           onTap: () async {
-            var alerted = await sendAlert();
+            loading();
             vibrate();
+            var alerted = await sendAlert();
+            Navigator.pop(context);
             CoolAlert.show(
               context: context,
               type: CoolAlertType.info,

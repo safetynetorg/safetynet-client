@@ -14,12 +14,13 @@ class PushNotificationsManager {
 
   Future<void> init() async {
     final prefs = await SharedPreferences.getInstance();
-    var token = prefs.getString('token');
-    if (token == null) {
+    if (prefs.getString('token') == null) {
+      var token;
+      
       _firebaseMessaging.requestNotificationPermissions();
       _firebaseMessaging.configure();
 
-      String token = await _firebaseMessaging.getToken();
+      token = await _firebaseMessaging.getToken();
       await newDevice(token);
 
       prefs.setString('token', token);
