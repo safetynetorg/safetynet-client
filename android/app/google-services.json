@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:798612964385:android:3e705ab3a4b77d5a938f60",
         "android_client_info": {
-          "package_name": "com.example.client"
+          "package_name": "com.safetynet.client"
         }
       },
       "oauth_client": [

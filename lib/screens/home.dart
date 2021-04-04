@@ -33,21 +33,25 @@ class _HomeState extends State<Home> {
         });
   }
 
+  Future<void> alert() async {
+    loading();
+    vibrate();
+    var alerted = await sendAlert();
+    Navigator.pop(context);
+    CoolAlert.show(
+      context: context,
+      type: CoolAlertType.info,
+      text: '$alerted device(s) have been alerted',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: InkWell(
           onTap: () async {
-            loading();
-            vibrate();
-            var alerted = await sendAlert();
-            Navigator.pop(context);
-            CoolAlert.show(
-              context: context,
-              type: CoolAlertType.info,
-              text: '$alerted device(s) have been alerted',
-            );
+            await alert();
           },
           borderRadius: BorderRadius.all(Radius.circular(30)),
           child: Card(

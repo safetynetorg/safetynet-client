@@ -10,6 +10,7 @@ Future<int> sendAlert() async {
       Device(await getToken(), lat: position.latitude, lon: position.longitude);
 
   var response = await RestCalls.post(ALERT, body: body.toJson());
+
   if (response.statusCode != 500) {
     return int.parse(response.body);
   }
