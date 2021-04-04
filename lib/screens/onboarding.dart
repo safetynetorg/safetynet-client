@@ -34,7 +34,7 @@ class Onboarding extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.all(10),
                     child: Text(
-                      'This app collects location data to enable location tracking even when the app is closed or not in use.',
+                      'This app collects location data to enable location tracking even when the app is closed or not in use. Only your current coordinates will be saved, whenever your location changes, your previous coordinates will be overwritten with the new ones. Your coordinates will be permanently removed upon app uninstallation.',
                       textAlign: TextAlign.center,
                     ),
                   )
@@ -42,7 +42,7 @@ class Onboarding extends StatelessWidget {
               ),
             ),
             RaisedButton.icon(
-                label: Text('Request permissions'),
+                label: Text('I understand'),
                 icon: Icon(Icons.check),
                 padding: const EdgeInsets.all(10),
                 shape: RoundedRectangleBorder(
